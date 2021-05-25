@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
 
+import UserList from './components/user-list/userList.component';
+import Button from './components/button/button.component';
+import { GetThemeContext, ToggleTheme } from './context/ThemeContext';
+
 function App() {
+  const theme = GetThemeContext();
+  const toggleTheme = ToggleTheme();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`App ${ theme }`}>
+      <Button handleOnClick={ toggleTheme }>Toggle theme</Button>
+      <UserList />
     </div>
   );
 }

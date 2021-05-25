@@ -1,0 +1,41 @@
+.user-container {
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+  max-width: 900px;
+  height: auto;
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 20px 30px;
+  margin: 20px;
+  box-shadow: 0 10px 10px 10px rgba(0,0,0,0.2);
+}
+
+.user-container.dark {
+  background-color: #181818;
+  color: white;
+}
+
+.user-info {
+  margin-left: 20px;
+}
+
+.user-container img {
+  width: 180px;
+  height: 180px;
+}
+
+.user-container p {
+  max-width: 650px;
+}
+
+.login-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-header {  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
