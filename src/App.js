@@ -1,8 +1,6 @@
 import { useState } from 'react';
 
 import UserList from './components/user-list/userList.component';
-import Button1 from './components/button/button.component';
-import { GetThemeContext, ToggleTheme } from './context/ThemeContext';
 import { AddUser } from './context/UsersContext';
 import { AddLogin } from './context/LoginContext';
 
@@ -11,8 +9,6 @@ import { TextField, Button } from '@material-ui/core';
 import './App.css';
 
 function App() {
-  const theme = GetThemeContext();
-  const toggleTheme = ToggleTheme();
   const addUser = AddUser();
   const addLogin = AddLogin();
 
@@ -48,8 +44,7 @@ function App() {
   }
 
   return (
-    <div className={`App ${ theme }`}>
-      <Button1 handleOnClick={ toggleTheme }>Toggle theme</Button1>
+    <div className='App'>
       <form onSubmit={ handleSubmit }>
         <TextField
           label='Name'
