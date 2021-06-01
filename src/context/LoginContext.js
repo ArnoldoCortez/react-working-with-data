@@ -11,6 +11,10 @@ export const ToggleIsLoggedIn = () => {
   return useContext(LoginContext).loginLogout;
 }
 
+export const AddLogin = () => {
+  return useContext(LoginContext).addLogin;
+}
+
 export const LoginContextProvider = ({ children }) => {
   const [loginInfo, setLoginInfo ] = useState(LOGIN_INFO);
 
@@ -23,8 +27,12 @@ export const LoginContextProvider = ({ children }) => {
     });
   }
 
+  const addLogin = (id) => {
+    setLoginInfo((prevLoginInfo) => [ ...prevLoginInfo ,{ id:id, isLoggedIn: false }]);
+  }
+
   return (
-    <LoginContext.Provider value={{ loginInfo, loginLogout }}>
+    <LoginContext.Provider value={{ loginInfo, loginLogout, addLogin }}>
       { children }
     </LoginContext.Provider>
   );

@@ -5,14 +5,14 @@ import { ToggleIsLoggedIn, GetLoginInfo } from '../../context/LoginContext';
 
 import './userCard.styles.css';
 
-const UserCard = ({ user : { id, avatar, name, biography } }) => {
+const UserCard = ({ user : { avatar, email, first_name, id, last_name } }) => {
 
   const deleteUser = DeleteUser();
   const theme = GetThemeContext();
   const toggleIsLoggedIn = ToggleIsLoggedIn();
   const loginInfo = GetLoginInfo();
 
-  const { username, password, isLoggedIn } = loginInfo.find(info => info.id === id);
+  const { isLoggedIn } = loginInfo.find(info => info.id === id);
 
   function handleOnDelete() {
     deleteUser(id);
@@ -25,25 +25,16 @@ const UserCard = ({ user : { id, avatar, name, biography } }) => {
   return (
     <div className={`user-container ${ theme }`}>
       <img src={ avatar } alt=''></img>
-      <div className='user-info'>
-        <div className='user-header'>
-          <h1>{ name }</h1>
-          <Button handleOnClick={ handleOnLogin }>
-            {isLoggedIn ? 'Logout' : 'Login'}
-          </Button>
-        </div>
-        <p>{ biography }</p>
-        {
-          isLoggedIn ? 
-          <div className='login-info'>
-            <div>
-              <span>{ `Username: ${ username }` }</span><br/>
-              <span>{ `Password: ${ password }` }</span>
-            </div>
-            <Button handleOnClick={ handleOnDelete }> Delete </Button>
-          </div> : null
-        }
-      </div>
+      <h1>{ `${first_name} ${last_name}` }</h1>
+      {
+        isLoggedIn ? <div className='user-info'>
+          <span>{ `Username: ${ email }` }</span><br/>
+          {isLoggedIn ? <Button handleOnClick={ handleOnDelete }> Delete </Button> : null}
+        </div> : null
+      }
+      <Button handleOnClick={ handleOnLogin }>
+        {isLoggedIn ? 'Logout' : 'Login'}
+      </Button>
     </div>
   );
 }

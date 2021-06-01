@@ -1,7 +1,8 @@
 .user-container {
   display: flex;
-  justify-content: space-between;
-  width: auto;
+  flex-direction: column;
+  align-items: center;
+  min-width: 250px;
   max-width: 900px;
   height: auto;
   border: 1px solid gray;
@@ -16,10 +17,6 @@
   color: white;
 }
 
-.user-info {
-  margin-left: 20px;
-}
-
 .user-container img {
   width: 180px;
   height: 180px;
@@ -29,13 +26,9 @@
   max-width: 650px;
 }
 
-.login-info {
+.user-info {
   display: flex;
-  justify-content: space-between;
-}
-
-.user-header {  
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  margin-bottom: 10px;
 }
